@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    tools:context=".Formularios.ventas_formulario"
-    android:fillViewport="true"
-    >
+    tools:context=".Formularios.ventas_formulario">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            />
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     android:weightSum="1">
 
     <TextView
         android:text="Datos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="16dp"
         />
     <View
         android:layout_width="match_parent"
@@ -31,15 +47,17 @@
 
         <TextView
             android:text="Clientes :"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:padding="16dp"
             />
-
         <Spinner
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:padding="16dp">
+            android:id="@+id/spinner_clientes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="16dp">
        </Spinner>
     </LinearLayout>
     <LinearLayout
@@ -49,15 +67,19 @@
 
         <TextView
             android:text="Tipo de documento "
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:padding="16dp"
             />
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:id="@+id/spinner_tipo_documento"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:layout_gravity="center">
         </Spinner>
     </LinearLayout>
 
@@ -117,9 +139,6 @@
         android:datePickerMode="spinner"
         android:calendarViewShown="false"
         />
-
-
-
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -158,40 +177,54 @@
          android:orientation="horizontal">
         <TextView
             android:text="Moneda:"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:padding="16dp" />
 
          <Spinner
-             android:layout_width="wrap_content"
+             android:id="@+id/spinner_moneda"
+             android:layout_weight="1"
+             android:layout_width="0dp"
              android:layout_height="wrap_content"
              android:padding="16dp">
          </Spinner>
 
      </LinearLayout>
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:orientation="horizontal">
+        <TextView
+            android:text="Tipo de Cambio :"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp" />
 
-    <EditText android:id="@+id/input_tip_cambio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Numero de Documento"
-        android:inputType="number"
-        android:layout_gravity="center" />
-</android.support.design.widget.TextInputLayout>
+        <EditText android:id="@+id/input_tip_cambio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="numberDecimal"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <TextView
         android:text="Detraccion"
-        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp" />
     <RadioButton
-        android:layout_width="match_parent"
+        android:id="@+id/radio_detraccion"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 </LinearLayout>
@@ -205,7 +238,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Guia de remision"
-            android:inputType="number"
+            android:inputType="text"
             android:layout_gravity="center" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -217,7 +250,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Orden de Compra"
-            android:inputType="number"
+            android:inputType="text"
             android:layout_gravity="center" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -228,8 +261,8 @@
         <EditText android:id="@+id/input_vehiculo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Placa de Vehiculo"
-            android:inputType="number"
+            android:hint="Observaciones"
+            android:inputType="text"
             android:layout_gravity="center" />
     </android.support.design.widget.TextInputLayout>
 
@@ -247,11 +280,11 @@
             />
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:clickable="true"
         android:src="@drawable/plus"
-        android:layout_margin="5dp">
+        android:layout_margin="2dp">
     </android.support.design.widget.FloatingActionButton>
     </LinearLayout>
 
@@ -301,7 +334,6 @@
                 android:layout_gravity="center"
                 android:padding="16dp"
                 />
-
             <TextView
                 android:text="Gratuita :"
                 android:layout_width="wrap_content"
@@ -309,8 +341,6 @@
                 android:layout_gravity="center"
                 android:padding="16dp"
                 />
-
-
             <TextView
                 android:text="Total :"
                 android:layout_width="wrap_content"
@@ -325,49 +355,79 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <TextView
+                android:id="@+id/exonerado"
                 android:text="00.00"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="16dp" />
             <TextView
+                android:id="@+id/inafecto"
                 android:text="00.00"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="16dp" />
             <TextView
+                android:id="@+id/gravado"
                 android:text="00.00"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="16dp" />
             <TextView
+                android:id="@+id/igv"
                 android:text="00.00"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="16dp" />
             <TextView
+                android:id="@+id/gratuita"
                 android:text="00.00"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="16dp" />
             <TextView
+                android:id="@+id/total"
                 android:text="00.00"
                 android:layout_width="wrap_content"
-
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="16dp" />
         </LinearLayout>
 
+</LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/btn_generar"
+           android:text="Generar"
+           android:layout_marginRight="30dp"/>
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/btn_Guardar"
+           android:text="Guardar como borrador"
+           android:layout_marginLeft="30dp" />
+
+
+
+
+   </LinearLayout>
+
+
+
 
 </LinearLayout>
-</LinearLayout>
-
     </ScrollView>
+    </RelativeLayout>
 
 
 

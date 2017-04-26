@@ -2,23 +2,13 @@ package com.example.jose.nubefact;
 import com.example.jose.nubefact.Formularios.ventas_formulario;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NavUtils;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-
-import static com.example.jose.nubefact.R.id.add_item;
 
 
 /**
@@ -45,7 +35,7 @@ public class Ventas extends Fragment  {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         menu.clear();
-        inflater.inflate(R.menu.menu_ventas , menu);
+        inflater.inflate(R.menu.menu_add, menu);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

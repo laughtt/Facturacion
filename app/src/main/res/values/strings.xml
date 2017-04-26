@@ -34,7 +34,18 @@
         <item>Neptune</item>
     </string-array>
 
-    <string-array name="Tipo_doc">
+    <string-array name="clie">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+    <string-array name="tipo_doc">
         <item>Factura Electronica</item>
         <item>Factura </item>
         <item>item</item>
@@ -43,6 +54,19 @@
         <item>Metro_Cubico</item>
         <item>Factura </item>
         <item>item</item>
+    </string-array>
+    <string-array name="clientes">
+        <item>Hormiga comunicacion</item>
+        <item>Nubefact </item>
+        <item>Tesla</item>
+    </string-array>
+    <string-array name="Tip_documento">
+        <item>Ruc</item>
+        <item>Dni</item>
+    </string-array>
+    <string-array name="moneda">
+        <item>Dolares</item>
+        <item>Soles</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -1,6 +1,7 @@
 package com.example.jose.nubefact;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,10 +15,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.example.jose.nubefact.Formularios.catalogo_formulario;
+
+import butterknife.BindDrawable;
+import butterknife.BindView;
+
+import static java.security.AccessController.getContext;
 
 public class Nubefact extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    @BindView(R.id.Nubefact_home )
+    ImageView home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +74,12 @@ public class Nubefact extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id ==R.id.Nubefact_home){
+            Intent intent = new Intent(this.getParent(), Nubefact.class);
+            startActivity(intent);
+            return true;
 
+    }
 
         return super.onOptionsItemSelected(item);
     }
@@ -78,7 +94,7 @@ public class Nubefact extends AppCompatActivity
             setTitle("Ventas");
             Ventas ventas= new Ventas();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frame ,ventas , "fragment_catalogo" ) ;
+            fragmentTransaction.replace(R.id.frame ,ventas , "fragment_ventas" ) ;
             fragmentTransaction.commit();
 
 
@@ -86,7 +102,7 @@ public class Nubefact extends AppCompatActivity
             setTitle("Clientes");
             Clientes clientes = new Clientes();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frame ,clientes , "fragment_catalogo" ) ;
+            fragmentTransaction.replace(R.id.frame ,clientes , "fragment_clientes" ) ;
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_catalogos) {
@@ -97,22 +113,24 @@ public class Nubefact extends AppCompatActivity
             fragmentTransaction.commit();
 
 
-
         } else if (id == R.id.nav_anulaciones) {
             setTitle("Anulaciones");
             Anulaciones anulaciones = new Anulaciones();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frame ,anulaciones , "fragment_catalogo" ) ;
+            fragmentTransaction.replace(R.id.frame ,anulaciones , "fragment_anulaciones" ) ;
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_configuracion) {
             setTitle("Configuracion");
             Configuracion configuracion = new Configuracion() ;
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frame ,configuracion , "fragment_catalogo" ) ;
+            fragmentTransaction.replace(R.id.frame ,configuracion , "fragment_configuracion" ) ;
             fragmentTransaction.commit();
 
+
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

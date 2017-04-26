@@ -26,15 +26,15 @@
         <activity
             android:name=".Formularios.ventas_formulario"
             android:label="Ingrese los datos de la venta"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Formularios.clientes_formulario"
             android:label="Ingrese los datos del cliente"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Formularios.catalogo_formulario"
             android:label="Ingrese los datos del producto"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name="com.example.jose.nubefact.Nubefact" android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.jose.nubefact.Login.SignupActivity" android:theme="@style/AppTheme.Dark" />

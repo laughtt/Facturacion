@@ -3,6 +3,7 @@ package com.example.jose.nubefact.Formularios;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,8 @@ import org.w3c.dom.Text;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.jose.nubefact.R.id.toolbar;
+
 /**
  * Created by jose on 4/15/2017.
  */
@@ -38,7 +41,7 @@ public class clientes_formulario extends AppCompatActivity {
         ButterKnife.bind(this);
         Spinner spinner = (Spinner) findViewById(R.id.spinner_doc);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.Tipo_doc, android.R.layout.simple_spinner_item);
+                R.array.tipo_doc, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
@@ -48,8 +51,21 @@ public class clientes_formulario extends AppCompatActivity {
                 login();
             }
         });
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                onBackPressed();
+            }
+        });
+
 
     }
+
+
 
     public void login() {
         Log.d("cargando", "Login");
@@ -60,23 +76,8 @@ public class clientes_formulario extends AppCompatActivity {
         }
 
         grabar.setEnabled(false);
+        onLoginSuccess();
 
-        final ProgressDialog progressDialog = new ProgressDialog(clientes_formulario.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
-        progressDialog.show();
-
-
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
     }
 
     public void onLoginSuccess() {
@@ -95,7 +96,7 @@ public class clientes_formulario extends AppCompatActivity {
         String doc = documento.getText().toString();
         String mobile = telefono.getText().toString();
 
-       
+
         if (doc.isEmpty() || doc.length() < 7) {
             documento.setError("al menos 7 caracteres");
             valid = false;
@@ -112,9 +113,4 @@ public class clientes_formulario extends AppCompatActivity {
 
 
         return valid;
-    }
-
-
-
-
-}
+    }}

@@ -17,7 +17,8 @@ import com.example.jose.nubefact.Formularios.catalogo_formulario;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Catalogo extends Fragment {
+public class
+Catalogo extends Fragment {
 
 
     public Catalogo() {
@@ -38,7 +39,7 @@ public class Catalogo extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         menu.clear();
-        inflater.inflate(R.menu.menu_ventas , menu);
+        inflater.inflate(R.menu.menu_add, menu);
     }
 
     @Override
